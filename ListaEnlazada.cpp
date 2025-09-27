@@ -35,9 +35,19 @@ int MyLinkedlist::Getat(int pos){
 
 void MyLinkedlist::insertFirst(int data){
     ListaEnlazada* Nuevo= new ListaEnlazada(data,this->Head);
-    Head  =Nuevo;
+    Head = Nuevo;
     size++; 
     if(size == 1){
         tail = Nuevo; 
     }
 }
+
+void MyLinkedlist::insertLast(int data){
+    ListaEnlazada* Nuevo = new ListaEnlazada(data);
+    if(this->tail != nullptr){
+        this->tail->Next = Nuevo; 
+    }else{
+        this->Head = Nuevo;
+    }
+    this -> tail = Nuevo; 
+}   
