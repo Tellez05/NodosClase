@@ -64,3 +64,11 @@ void MyLinkedlist::insertAt(int pos, int data){
     current->Next = Nuevo;  
     size++; 
 }
+
+void MyLinkedlist::removeFirst(){
+    ListaEnlazada* Eliminar = this->Head; 
+    if(this->Head->Next == nullptr){
+        delete Head; 
+    }
+
+}
