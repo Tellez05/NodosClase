@@ -30,11 +30,14 @@ class MyLinkedlist{
         bool isempty();
         int first(); 
         int last();
-        
-        int Getat(int a);
+        int getAt(int a);
         void insertFirst(int data);
         void insertLast(int data);
-        void insertat(int pos, int data);
+        void insertAt(int pos, int data);
+        void removeFirst(); 
+        void removeLast(); 
+        void removeAt(int pos); //pos:[0, size-1] 
+        friend ostream& operator <<(ostream& os, const MyLinkedlist& II);
     };  
 
 #endif

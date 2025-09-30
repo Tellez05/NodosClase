@@ -21,7 +21,7 @@ int MyLinkedlist::last(){
     return this->tail->Data;
 }
 
-int MyLinkedlist::Getat(int pos){
+int MyLinkedlist::getAt(int pos){
     int i {0};
     ListaEnlazada* current {this->Head}; 
     while(i < pos){
@@ -29,8 +29,6 @@ int MyLinkedlist::Getat(int pos){
     i++;    
     }
     return current->Data; 
-    
-
 }
 
 void MyLinkedlist::insertFirst(int data){
@@ -50,4 +48,19 @@ void MyLinkedlist::insertLast(int data){
         this->Head = Nuevo;
     }
     this -> tail = Nuevo; 
+    size++; 
 }   
+
+
+void MyLinkedlist::insertAt(int pos, int data){
+    ListaEnlazada* Nuevo = new ListaEnlazada(data);
+    ListaEnlazada* current {this->Head}; 
+    int i {0};
+    while(i < pos-1){
+        current = current->Next; 
+        i++;
+    }
+    Nuevo->Next = current->Next;
+    current->Next = Nuevo;  
+    size++; 
+}
