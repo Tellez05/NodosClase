@@ -14,14 +14,23 @@ bool MyLinkedlist::isempty(){
 } 
 
 int MyLinkedlist::first(){
+        if(size == 0){
+            throw "Invalido, la lista no tiene elementos"; 
+    }
     return this->Head ->Data;
 }
 
 int MyLinkedlist::last(){
+    if(size == 0){
+        throw "Invalido, la lista no tiene elementos"; 
+    }
     return this->tail->Data;
 }
 
 int MyLinkedlist::getAt(int pos){
+    if(pos > size){
+        throw "Invalido, la lista no tiene esa posicion"; 
+    }
     int i {0};
     ListaEnlazada* current {this->Head}; 
     while(i < pos){
@@ -53,6 +62,9 @@ void MyLinkedlist::insertLast(int data){
 
 
 void MyLinkedlist::insertAt(int pos, int data){
+    if(pos<0 || pos > size){
+        throw "Error, no se puede insertar en esa posicion"; 
+    }
     ListaEnlazada* Nuevo = new ListaEnlazada(data);
     ListaEnlazada* current {this->Head}; 
     int i {0};
@@ -66,9 +78,38 @@ void MyLinkedlist::insertAt(int pos, int data){
 }
 
 void MyLinkedlist::removeFirst(){
-    ListaEnlazada* Eliminar = this->Head; 
-    if(this->Head->Next == nullptr){
-        delete Head; 
+    if(this->Head == nullptr){
+        throw "No hay un primer elemento";
     }
+
+    ListaEnlazada* Eliminar  {this->Head}; 
+    this->Head = this->Head->Next; 
+    delete Eliminar; 
+    size--; 
+}
+
+void MyLinkedlist::removeLast(){
+    if(size == 0){
+        throw "Error, no hay un elemento final"; 
+    }
+    ListaEnlazada* Eliminar {this->tail};
+    if(Head == tail){
+        delete Eliminar; 
+        Head = tail = nullptr;
+        size--; 
+        return; 
+    } 
+    
+    ListaEnlazada* current = this->Head; 
+    while(current->Next != Eliminar){
+        current = current->Next; 
+    }
+    this->tail = current; 
+    current->Next = nullptr; 
+    delete Eliminar; 
+    size--; 
+}
+
+void MyLinkedlist::removeAt(int pos){
 
 }
