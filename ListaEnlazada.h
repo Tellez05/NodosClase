@@ -1,3 +1,10 @@
+/*
+Andres Tellez Bermudez Matricula: A01640907
+Fecha: 02/10/2025
+Tarea 2.1
+*/
+
+
 #ifndef LISTAENLAZADA_H
 #define LISTAENLAZADA_H
 
@@ -20,9 +27,10 @@ struct ListaEnlazada
 
 class MyLinkedlist{
     private: 
+
+    public:
         ListaEnlazada* Head; 
         ListaEnlazada* tail;
-    public:
         int size; 
         ~MyLinkedlist();
         MyLinkedlist();

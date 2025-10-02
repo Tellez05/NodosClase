@@ -1,32 +1,38 @@
-#include "ListaEnlazada.h"
+/*
+Andres Tellez Bermudez Matricula: A01640907
+Fecha: 02/10/2025
+Tarea 2.1
+*/
 
+#include "ListaEnlazada.h"
+//O(1)
 MyLinkedlist::MyLinkedlist(){
     this->Head = this->tail = nullptr;
     size = 0;
 }
-
+//O(1)
 int MyLinkedlist::length(){
     return size; 
 }
-
+//O(1)
 bool MyLinkedlist::isempty(){
     return size == 0; 
 } 
-
+//O(1)
 int MyLinkedlist::first(){
         if(size == 0){
             throw "Invalido, la lista no tiene elementos"; 
     }
     return this->Head ->Data;
 }
-
+//O(1)
 int MyLinkedlist::last(){
     if(size == 0){
         throw "Invalido, la lista no tiene elementos"; 
     }
     return this->tail->Data;
 }
-
+//O(n)
 int MyLinkedlist::getAt(int pos){
     if(pos > size){
         throw "Invalido, la lista no tiene esa posicion"; 
@@ -39,7 +45,7 @@ int MyLinkedlist::getAt(int pos){
     }
     return current->Data; 
 }
-
+//O(1)
 void MyLinkedlist::insertFirst(int data){
     ListaEnlazada* Nuevo= new ListaEnlazada(data,this->Head);
     Head = Nuevo;
@@ -48,7 +54,7 @@ void MyLinkedlist::insertFirst(int data){
         tail = Nuevo; 
     }
 }
-
+//O(1)
 void MyLinkedlist::insertLast(int data){
     ListaEnlazada* Nuevo = new ListaEnlazada(data);
     if(this->tail != nullptr){
@@ -60,7 +66,7 @@ void MyLinkedlist::insertLast(int data){
     size++; 
 }   
 
-
+//O(n)
 void MyLinkedlist::insertAt(int pos, int data){
     if(pos<0 || pos > size){
         throw "Error, no se puede insertar en esa posicion"; 
@@ -76,7 +82,7 @@ void MyLinkedlist::insertAt(int pos, int data){
     current->Next = Nuevo;  
     size++; 
 }
-
+//O(1)
 void MyLinkedlist::removeFirst(){
     if(this->Head == nullptr){
         throw "No hay un primer elemento";
@@ -87,7 +93,7 @@ void MyLinkedlist::removeFirst(){
     delete Eliminar; 
     size--; 
 }
-
+//O(n)
 void MyLinkedlist::removeLast(){
     if(size == 0){
         throw "Error, no hay un elemento final"; 
@@ -108,7 +114,7 @@ void MyLinkedlist::removeLast(){
     delete Eliminar; 
     size--; 
 }
-
+//O(n)
 void MyLinkedlist::removeAt(int pos){
     if(pos < 0 || pos >= size){
         throw "Error en la posicion que se intenta remover"; 
@@ -132,7 +138,7 @@ void MyLinkedlist::removeAt(int pos){
         size--; 
     }
 }   
-
+//O(1)
 ostream& operator<<(ostream& os, const MyLinkedlist& II){
     ListaEnlazada* current = II.Head;
     while(current != nullptr){
@@ -141,7 +147,7 @@ ostream& operator<<(ostream& os, const MyLinkedlist& II){
     } 
     return os; 
 }
-
+//O(n)
 MyLinkedlist::~MyLinkedlist(){
     while(size > 0){
         removeFirst(); 
