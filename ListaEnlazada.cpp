@@ -111,7 +111,25 @@ void MyLinkedlist::removeLast(){
 }
 
 void MyLinkedlist::removeAt(int pos){
-    if(pos < 0 || pos < size){
+    if(pos < 0 || pos >= size){
         throw "Error en la posicion que se intenta remover"; 
+    }
+    if(pos == 0){
+        removeFirst();
+    }
+    else if(pos == size-1){
+        removeLast();
+    }
+    else{
+        int i {0};
+        ListaEnlazada* current = this->Head; 
+        while(i < pos-1){
+            current = current ->Next; 
+            i++;
+        }   
+        ListaEnlazada* Delete = current->Next; 
+        current->Next = Delete->Next; 
+        delete Delete; 
+        size--; 
     }
 }   
