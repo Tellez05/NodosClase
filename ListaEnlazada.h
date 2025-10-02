@@ -24,6 +24,7 @@ class MyLinkedlist{
         ListaEnlazada* tail;
     public:
         int size; 
+        ~MyLinkedlist();
         MyLinkedlist();
         int length();  
         bool isempty();
