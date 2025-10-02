@@ -111,5 +111,7 @@ void MyLinkedlist::removeLast(){
 }
 
 void MyLinkedlist::removeAt(int pos){
-
-}
+    if(pos < 0 || pos < size){
+        throw "Error en la posicion que se intenta remover"; 
+    }
+}   
