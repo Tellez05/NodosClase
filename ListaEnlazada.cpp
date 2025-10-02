@@ -99,7 +99,6 @@ void MyLinkedlist::removeLast(){
         size--; 
         return; 
     } 
-    
     ListaEnlazada* current = this->Head; 
     while(current->Next != Eliminar){
         current = current->Next; 
@@ -133,3 +132,18 @@ void MyLinkedlist::removeAt(int pos){
         size--; 
     }
 }   
+
+ostream& operator<<(ostream& os, const MyLinkedlist& II){
+    ListaEnlazada* current = II.Head;
+    while(current != nullptr){
+        os <<current ->Data<<",";
+        current = current->Next;  
+    } 
+    return os; 
+}
+
+MyLinkedlist::~MyLinkedlist(){
+    while(size > 0){
+        removeFirst(); 
+    }
+}

@@ -25,7 +25,6 @@ class MyLinkedlist{
     public:
         int size; 
         MyLinkedlist();
-        ~MyLinkedlist();
         int length();  
         bool isempty();
         int first(); 
