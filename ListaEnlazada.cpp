@@ -32,6 +32,21 @@ int MyLinkedlist::last(){
     }
     return this->tail->Data;
 }
+
+//O(n)
+void MyLinkedlist::setAt(int pos, int data){
+    if(0 > pos || size <= pos ){
+        throw "No se puede cambiar los datos en esa posicion"; 
+    }
+    ListaEnlazada* current = this->Head; 
+    int i {0};
+    while(i < pos){
+        i++; 
+        current = current->Next; 
+    }
+    current->Data = data; 
+
+}
 //O(n)
 int MyLinkedlist::getAt(int pos){
     if(pos > size){

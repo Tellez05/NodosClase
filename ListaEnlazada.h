@@ -4,7 +4,6 @@ Fecha: 02/10/2025
 Tarea 2.1
 */
 
-
 #ifndef LISTAENLAZADA_H
 #define LISTAENLAZADA_H
 
@@ -36,6 +35,7 @@ class MyLinkedlist{
         MyLinkedlist();
         int length();  
         bool isempty();
+        void setAt(int pos, int data); 
         int first(); 
         int last();
         int getAt(int a);
