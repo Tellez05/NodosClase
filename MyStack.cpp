@@ -17,7 +17,7 @@ void MyStack::Pop(){
 
 int MyStack::Top(){
     try{
-        Lista.first(); 
+        return Lista.first(); 
     }catch(invalid_argument ex){
         throw invalid_argument("No hay un elementoss en el Stack");
     }
