@@ -1,14 +1,25 @@
 #include "ListaEnlazada.h"
+#include "MyQueue.h"
+#include "MyStack.h"
 
 
 int main(){
-    MyLinkedlist lista1; 
-    lista1.insertFirst(0);
-    lista1.insertFirst(2);  
-    lista1.removeAt(1);
+    MyStack ms; 
+    MyQueue mq; 
 
+    for(int i {0}; i < 100; i++){
+        ms.Push(i+1);
+        mq.Enqueue(i+1);
+    }
 
+    while(!ms.isEmpty()){
+        cout<<ms.Top()<<endl;
+        ms.Pop();
+    }
 
-    cout<<lista1<<endl; 
+    while(!mq.isEmpty()){
+        cout<<mq.Peek()<<endl; 
+        mq.Dequeue(); 
+    }
     return 0; 
 }

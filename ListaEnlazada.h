@@ -3,10 +3,7 @@ Andres Tellez Bermudez Matricula: A01640907
 Fecha: 02/10/2025
 Tarea 2.1
 */
-
-
-#ifndef LISTAENLAZADA_H
-#define LISTAENLAZADA_H
+#pragma once
 
 
 #include <iostream>
@@ -44,8 +41,7 @@ class MyLinkedlist{
         void insertAt(int pos, int data);
         void removeFirst(); 
         void removeLast(); 
+        void Flush(); 
         void removeAt(int pos); //pos:[0, size-1] 
         friend ostream& operator <<(ostream& os, const MyLinkedlist& II);
     };  
-
-#endif

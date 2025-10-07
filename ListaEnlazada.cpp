@@ -23,7 +23,7 @@ int MyLinkedlist::first(){
         if(size == 0){
             throw "Invalido, la lista no tiene elementos"; 
     }
-    return this->Head ->Data;
+    return this->Head->Data;
 }
 //O(1)
 int MyLinkedlist::last(){
@@ -149,7 +149,12 @@ ostream& operator<<(ostream& os, const MyLinkedlist& II){
 }
 //O(n)
 MyLinkedlist::~MyLinkedlist(){
-    while(size > 0){
-        removeFirst(); 
-    }
+    Flush(); 
 }
+
+void MyLinkedlist::Flush(){
+    while(size > 0){
+    removeFirst(); 
+}
+}
+
